@@ -1,12 +1,22 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 14:16:39 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/08 14:16:40 by pbencze          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat(){
+   std::cout << "Default constructor called." << std::endl;
+}
+
+Bureaucrat::Bureaucrat(std::string name){
+   std::cout << "Parameterized constructor called." << std::endl;
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat const& src){
+   std::cout << "Copy constructor called." << std::endl;
+}
+
+Bureaucrat::~Bureaucrat(){
+   std::cout << "Destructor called." << std::endl;
+}
+
+Bureaucrat & Bureaucrat::operator=(Bureaucrat const& rhs){
+   if (this != &rhs){}
+   return *this;
+}
