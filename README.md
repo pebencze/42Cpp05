@@ -59,3 +59,79 @@ class exception {
    virtual const char *what() const;
 };
 ```
+
+## General vs. Custom Exceptions
+```c++
+void test1()
+{
+    try
+    {
+        //do stuff
+        if (exception occurs)
+        {
+            throw std::exception();
+        }
+        else
+        {
+            //do stuff
+        }
+    }
+    catch (std::exception e)
+    {
+        //handle error
+    }
+};
+
+void test2()
+{
+    //do stuff
+    if (exception occurs)
+    {
+        throw std::exception();
+    }
+    else
+    {
+        //do stuff
+    }
+}
+
+void test3()
+{
+    try
+    {
+        test2();
+    }
+    catch (std::exception &e)
+    {
+        //handle error
+    }
+}
+
+/*
+	•	Shows Polymorphic Behavior: How derived exceptions can be caught using a base class pointer or reference. Since MyException is derived from std::exception, it can be caught by the catch (std::exception &e) block if the catch (MyException &e) block were absent. 
+	•	The example emphasizes the importance of the order of catch blocks, as placing the more general std::exception block first would prevent the MyException block from ever being executed
+*/
+void test4()
+{
+    class MyException : public std::exception //custom exception
+    {
+        public: 
+            virtual const char* what() const throw()
+            { 
+                return ("This is my problem.");
+            }
+    }
+    try
+    {
+        test3();
+    }
+    catch (MyException &e)
+    {
+        //handle my custom exception
+    }
+    catch (std::exception &e)
+    {
+        //handle other types of exception
+    }
+}
+```
