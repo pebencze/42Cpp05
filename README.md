@@ -4,6 +4,12 @@ Repetition and exceptions.
 ## Exceptions
 ~: a way of handling errors in C++. Related terms: try, catch, throw, if-else.
 
+### Why Exceptions? - Cons of Return Values.
+- return codes do not work well with constructors
+- makes functions look long and messy
+- user has to deduce what the error code means
+- if the function has to return integers, what shall it return on error?
+
 ## Pros and Cons of Exceptions:
 ### Pros
 - especialy useful when the stack contains several function calls between the function that detects and the one that handles the error. In C we ususally return -1,-2,-3 etc. in case of an error, but this is a tedious way of error handling. Or we set a global variable with an error code that the user may have to retrieve after every function call.
