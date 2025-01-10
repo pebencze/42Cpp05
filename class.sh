@@ -18,11 +18,11 @@ echo "" >> $NAME.hpp
 echo "class $NAME {" >> $NAME.hpp
 echo "    public:" >> $NAME.hpp
 echo "        $NAME(); //default constructor" >> $NAME.hpp
-echo "        $NAME(std::string name); //parameterized constructor" >> $NAME.hpp
-echo "        $NAME($NAME const& src); //copy constructor" >> $NAME.hpp
+echo "        $NAME(std::string &name); //parameterized constructor" >> $NAME.hpp
+echo "        $NAME(const $NAME &src); //copy constructor" >> $NAME.hpp
 echo "        ~$NAME(); //destructor" >> $NAME.hpp
 echo "" >> $NAME.hpp
-echo "        $NAME & operator=($NAME const& rhs); //operator overload" >> $NAME.hpp
+echo "        $NAME &operator=(const $NAME &rhs); //operator overload" >> $NAME.hpp
 echo "" >> $NAME.hpp
 #echo "    private:" >> $NAME.hpp
 echo "};" >> $NAME.hpp
@@ -39,7 +39,7 @@ echo "$NAME::$NAME(std::string name) {" >> $NAME.cpp
 echo "   std::cout << \"Parameterized constructor called.\" << std::endl;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp
-echo "$NAME::$NAME($NAME const& src) {" >> $NAME.cpp
+echo "$NAME::$NAME(const $NAME &src) {" >> $NAME.cpp
 echo "   std::cout << \"Copy constructor called.\" << std::endl;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp
@@ -47,7 +47,7 @@ echo "$NAME::~$NAME() {" >> $NAME.cpp
 echo "   std::cout << \"Destructor called.\" << std::endl;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp
-echo "$NAME & $NAME::operator=($NAME const& rhs) {" >> $NAME.cpp
+echo "$NAME & $NAME::operator=(const $NAME &rhs) {" >> $NAME.cpp
 echo "   if (this != &rhs) {}" >> $NAME.cpp
 echo "   return *this;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
