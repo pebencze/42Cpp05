@@ -1,22 +1,73 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(){
+Bureaucrat::Bureaucrat() : _name("Default") {
    std::cout << "Default constructor called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name){
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade) {
+   if (grade < 1)
+   {
+      std::cerr << "Error during construction. ";
+      throw Bureaucrat::GradeTooHighException();
+   }
+   else if (grade > 150)
+   {
+      std::cerr << "Error during construction. ";
+      throw Bureaucrat::GradeTooLowException();
+   }
    std::cout << "Parameterized constructor called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const& src){
+Bureaucrat::Bureaucrat(Bureaucrat const& src) : _name("Default") {
+   *this = src;
    std::cout << "Copy constructor called." << std::endl;
 }
 
-Bureaucrat::~Bureaucrat(){
+Bureaucrat::~Bureaucrat() {
    std::cout << "Destructor called." << std::endl;
 }
 
-Bureaucrat & Bureaucrat::operator=(Bureaucrat const& rhs){
-   if (this != &rhs){}
-   return *this;
+Bureaucrat & Bureaucrat::operator=(Bureaucrat const& rhs) {
+   if (this != &rhs){
+      this->_grade = rhs._grade;
+   }
+   return (*this);
+}
+
+int Bureaucrat::getGrade() const {
+   return (_grade);
+}
+
+void Bureaucrat::setGrade(int newGrade) {
+   try {
+      if (newGrade < 1)
+         throw Bureaucrat::GradeTooHighException();
+      else if (newGrade > 150)
+         throw Bureaucrat::GradeTooLowException();
+      else
+         _grade = newGrade;
+   }
+   catch (std::exception &e){
+      std::cout << e.what() << std::endl;
+      return ;
+   }
+}
+
+std::string Bureaucrat::getName() const {
+   return (_name);
+}
+
+void Bureaucrat::increment(int amount) {
+   setGrade(_grade - amount);
+   std::cout << "Incrementing..." << std::endl;
+}
+
+void Bureaucrat::decrement(int amount) {
+   std::cout << "Decrementing..." << std::endl;
+   setGrade(_grade + amount);
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs) {
+   out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
+   return (out);
 }

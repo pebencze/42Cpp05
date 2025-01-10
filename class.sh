@@ -31,24 +31,24 @@ echo "#endif" >> $NAME.hpp
 
 echo "#include \"$NAME.hpp\"" > $NAME.cpp
 echo "" >> $NAME.cpp
-echo "$NAME::$NAME(){" >> $NAME.cpp
+echo "$NAME::$NAME() {" >> $NAME.cpp
 echo "   std::cout << \"Default constructor called.\" << std::endl;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp
-echo "$NAME::$NAME(std::string name){" >> $NAME.cpp
+echo "$NAME::$NAME(std::string name) {" >> $NAME.cpp
 echo "   std::cout << \"Parameterized constructor called.\" << std::endl;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp
-echo "$NAME::$NAME($NAME const& src){" >> $NAME.cpp
+echo "$NAME::$NAME($NAME const& src) {" >> $NAME.cpp
 echo "   std::cout << \"Copy constructor called.\" << std::endl;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp
-echo "$NAME::~$NAME(){" >> $NAME.cpp
+echo "$NAME::~$NAME() {" >> $NAME.cpp
 echo "   std::cout << \"Destructor called.\" << std::endl;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp
-echo "$NAME & $NAME::operator=($NAME const& rhs){" >> $NAME.cpp
-echo "   if (this != &rhs){}" >> $NAME.cpp
+echo "$NAME & $NAME::operator=($NAME const& rhs) {" >> $NAME.cpp
+echo "   if (this != &rhs) {}" >> $NAME.cpp
 echo "   return *this;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 
