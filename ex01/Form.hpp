@@ -2,6 +2,7 @@
 # define FORM_HPP
 
 # include <iostream>
+# include "Bureaucrat.hpp"
 
 class Form {
     public:
@@ -12,21 +13,33 @@ class Form {
 
         Form &operator=(Form const &rhs); //operator overload
 
-        class GradeTooHighException : public std::exception {
-            virtual const char* what() const throw() {
-                return "Grade is too high.";
-            }
-        };
-        class GradeTooLowException : public std::exception {
-            virtual const char* what() const throw() {
-                return "Grade is too low.";
-            }
-        };
+		const int getSignGrade() const;
+		const int getExecGrade() const;
+		const std::string getName() const;
+		bool getSigned() const;
+
+		void beSigned(Bureaucrat b);
+
+		class GradeTooHighException : public std::exception {
+			public:
+				virtual const char* what() const throw() {
+					return "Grade is too high.";
+				}
+		};
+		class GradeTooLowException : public std::exception {
+			public:
+				virtual const char* what() const throw() {
+					return "Grade is too low.";
+				}
+		};
 
     private:
-        const std::string _name;
-        bool _signed;
-        const int _signGrade;
-        const int _execGrade;
+        const std::string	_name;
+        bool				_signed;
+        const int			_signGrade;
+        const int			_execGrade;
 };
+
+std::ostream &operator<<(std::ostream &out, const Form &rhs);
+
 #endif

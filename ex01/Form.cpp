@@ -27,3 +27,42 @@ Form & Form::operator=(const Form &rhs) {
    }
    return *this;
 }
+
+const int Form::getSignGrade() const {
+	return(_signGrade);
+}
+
+const int Form::getExecGrade() const {
+	return(_execGrade);
+}
+
+const std::string Form::getName() const {
+	return(_name);
+}
+
+bool Form::getSigned() const {
+	return(_signed);
+}
+
+void Form::beSigned(Bureaucrat b) {
+	if (b.getGrade() <= _signGrade)
+		_signed = true;
+	else
+		throw GradeTooLowException();
+}
+
+std::ostream &operator<<(std::ostream &out, const Form &rhs) {
+	out << "Form " << rhs.getName()
+	<< " requires " << rhs.getExecGrade() << " to execute it, "
+	<< rhs.getSignGrade() << " to sign it, ";
+
+	if (rhs.getSigned() == true)
+		out << " and it has already been signed";
+	else
+		out << " and it has not yet been signed";
+
+	out << std::endl;
+	return (out);
+}
+
+

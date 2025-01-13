@@ -2,6 +2,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
 
 class Bureaucrat {
     public:
@@ -18,16 +19,17 @@ class Bureaucrat {
         //setName(); not in use because of const variable
         void decrement(int amount);
         void increment(int amount);
+		void signForm(Form f) const;
 
         class GradeTooHighException : public std::exception { //custom exception, nested class
-            public: 
-                virtual const char* what() const throw() { 
+            public:
+                virtual const char* what() const throw() {
                     return ("Grade is too high.");
                 }
         };
         class GradeTooLowException : public std::exception { //custom exception, nested class
-            public: 
-                virtual const char* what() const throw() { 
+            public:
+                virtual const char* what() const throw() {
                     return ("Grade is too low.");
                 }
         };
