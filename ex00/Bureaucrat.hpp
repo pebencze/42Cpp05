@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/13 13:23:18 by pbencze           #+#    #+#             */
+/*   Updated: 2025/01/13 13:23:19 by pbencze          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
@@ -20,14 +32,14 @@ class Bureaucrat {
         void increment(int amount);
 
         class GradeTooHighException : public std::exception { //custom exception, nested class
-            public: 
-                virtual const char* what() const throw() { 
+            public:
+                virtual const char* what() const throw() {
                     return ("Grade is too high.");
                 }
         };
         class GradeTooLowException : public std::exception { //custom exception, nested class
-            public: 
-                virtual const char* what() const throw() { 
+            public:
+                virtual const char* what() const throw() {
                     return ("Grade is too low.");
                 }
         };

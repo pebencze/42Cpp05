@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/13 13:23:05 by pbencze           #+#    #+#             */
+/*   Updated: 2025/01/13 13:31:12 by pbencze          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default") {
@@ -67,7 +79,7 @@ void Bureaucrat::decrement(int amount) {
    setGrade(_grade + amount);
 }
 
-void Bureaucrat::signForm(Form f) const {
+void Bureaucrat::signForm(Form &f) const {
 	try
 	{
 		f.beSigned(*this);

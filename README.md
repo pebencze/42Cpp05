@@ -27,9 +27,9 @@ Repetition and exceptions.
 - THROW BY VALUE, CATCH BY REFERENCE
 - exceptions should not escape destruction or deallocation functions
 
-- many system functions like new or stringstreams can throw an exception 
+- many system functions like new or stringstreams can throw an exception
 
-## Exception Mechanism 
+## Exception Mechanism
 (source: https://learn.microsoft.com/en-us/cpp/cpp/exceptions-and-stack-unwinding-in-cpp?view=msvc-170 (9.1.2025))
 ### Try and No Exception
 "Control reaches the try statement by normal sequential execution. The guarded section in the try block is executed.
@@ -114,16 +114,16 @@ void test3()
 }
 
 /*
-	•	Shows Polymorphic Behavior: How derived exceptions can be caught using a base class pointer or reference. Since MyException is derived from std::exception, it can be caught by the catch (std::exception &e) block if the catch (MyException &e) block were absent. 
+	•	Shows Polymorphic Behavior: How derived exceptions can be caught using a base class pointer or reference. Since MyException is derived from std::exception, it can be caught by the catch (std::exception &e) block if the catch (MyException &e) block were absent.
 	•	The example emphasizes the importance of the order of catch blocks, as placing the more general std::exception block first would prevent the MyException block from ever being executed
 */
 void test4()
 {
     class MyException : public std::exception //custom exception
     {
-        public: 
+        public:
             virtual const char* what() const throw()
-            { 
+            {
                 return ("This is my problem.");
             }
     }
@@ -140,4 +140,24 @@ void test4()
         //handle other types of exception
     }
 }
+```
+
+## Random Things to Remember
+1. String reference has to be const in a parameterized constructor, to
+avoid the following error: "no known conversion from 'const char [9]' to 'std::string &' (aka 'basic_string<char> &'"
+```c++
+Form(const std::string &name, int signGrade, int execGrade);
+```
+2. Use of forward declaration to avoid circular dependencies.
+
+```c++
+#ifndef FORM_HPP
+# define FORM_HPP
+
+# include <iostream>
+# include "Bureaucrat.hpp"
+
+class Bureaucrat; //forward declaration
+
+class Form {...};
 ```

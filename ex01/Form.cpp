@@ -1,10 +1,23 @@
-#include "Form.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/13 13:23:00 by pbencze           #+#    #+#             */
+/*   Updated: 2025/01/13 13:33:31 by pbencze          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Form::Form() : _name("Default"), _signGrade(0), _execGrade(0), _signed(0) {
+#include "Form.hpp"
+#include "Bureaucrat.hpp"
+
+Form::Form() : _name("Default"), _signed(0), _signGrade(0), _execGrade(0) {
    std::cout << "Default constructor called." << std::endl;
 }
 
-Form::Form(std::string &name, int &signGrade, int &execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade), _signed(0){
+Form::Form(const std::string &name, int signGrade, int execGrade) : _name(name), _signed(0), _signGrade(signGrade), _execGrade(execGrade) {
    if (_signGrade > 150 || _execGrade > 150)
       throw Form::GradeTooLowException();
    if (_signGrade < 1 || _execGrade < 1)
@@ -12,7 +25,7 @@ Form::Form(std::string &name, int &signGrade, int &execGrade) : _name(name), _si
    std::cout << "Parameterized constructor called." << std::endl;
 }
 
-Form::Form(const Form &src) : _name("Default"), _signGrade(0), _execGrade(0), _signed(0){
+Form::Form(const Form &src) : _name("Default"), _signed(0), _signGrade(0), _execGrade(0) {
    this->_signed = src._signed;
    std::cout << "Copy constructor called." << std::endl;
 }
@@ -28,15 +41,15 @@ Form & Form::operator=(const Form &rhs) {
    return *this;
 }
 
-const int Form::getSignGrade() const {
+int Form::getSignGrade() const {
 	return(_signGrade);
 }
 
-const int Form::getExecGrade() const {
+int Form::getExecGrade() const {
 	return(_execGrade);
 }
 
-const std::string Form::getName() const {
+std::string Form::getName() const {
 	return(_name);
 }
 
