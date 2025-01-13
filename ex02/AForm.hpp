@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:22:58 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/13 15:27:13 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/13 15:54:43 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat; //forward declaration
 
-
-class Form {
+class AForm {
     public:
-        Form(const std::string &name, int signGrade, int execGrade); //parameterized constructor
-        ~Form(); //destructor
+        AForm(const std::string &name, int signGrade, int execGrade); //parameterized constructor
+        virtual ~AForm(); //destructor
 
-        Form &operator=(Form const &rhs); //operator overload
+        AForm &operator=(AForm const &rhs); //operator overload
 
 		int getSignGrade() const;
 		int getExecGrade() const;
@@ -47,8 +46,8 @@ class Form {
 		};
 
     private:
-        Form(); //default constructor
-        Form(const Form &src); //copy constructor
+        AForm(); //default constructor
+        AForm(const AForm &src); //copy constructor
 
         const std::string	_name;
         bool				_signed;
@@ -56,6 +55,6 @@ class Form {
         const int			_execGrade;
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &rhs);
+std::ostream &operator<<(std::ostream &out, const AForm &rhs);
 
 #endif

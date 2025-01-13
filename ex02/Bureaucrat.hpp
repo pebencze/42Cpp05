@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:23:03 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/13 14:43:21 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/13 14:53:02 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include "Form.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
     public:
@@ -31,7 +31,7 @@ class Bureaucrat {
         //setName(); not in use because of const variable
         void decrement(int amount);
         void increment(int amount);
-		void signForm(Form &f) const;
+		void signForm(AForm &f) const;
 
         class GradeTooHighException : public std::exception { //custom exception, nested class
             public:

@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:23:05 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/13 14:34:27 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/13 14:53:02 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void Bureaucrat::decrement(int amount) {
    setGrade(_grade + amount);
 }
 
-void Bureaucrat::signForm(Form &f) const {
+void Bureaucrat::signForm(AForm &f) const {
 	try
 	{
 		f.beSigned(*this);

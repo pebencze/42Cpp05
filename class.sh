@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NAME=$1
-UPPERCASE_NAME=$(echo "$NAME" | tr '[:lower:]' '[:upper:]') #${NAME^^} 
+UPPERCASE_NAME=$(echo "$NAME" | tr '[:lower:]' '[:upper:]') #${NAME^^}
 DIRECTORY=$2
 
 mkdir -p $DIRECTORY
@@ -18,7 +18,7 @@ echo "" >> $NAME.hpp
 echo "class $NAME {" >> $NAME.hpp
 echo "    public:" >> $NAME.hpp
 echo "        $NAME(); //default constructor" >> $NAME.hpp
-echo "        $NAME(std::string &name); //parameterized constructor" >> $NAME.hpp
+echo "        $NAME(const std::string &name); //parameterized constructor" >> $NAME.hpp
 echo "        $NAME(const $NAME &src); //copy constructor" >> $NAME.hpp
 echo "        ~$NAME(); //destructor" >> $NAME.hpp
 echo "" >> $NAME.hpp
@@ -35,7 +35,7 @@ echo "$NAME::$NAME() {" >> $NAME.cpp
 echo "   std::cout << \"Default constructor called.\" << std::endl;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp
-echo "$NAME::$NAME(std::string name) {" >> $NAME.cpp
+echo "$NAME::$NAME(const std::string &name) {" >> $NAME.cpp
 echo "   std::cout << \"Parameterized constructor called.\" << std::endl;" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp

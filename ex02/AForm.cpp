@@ -1,70 +1,70 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:23:00 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/13 15:27:40 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/13 14:53:02 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : _name("Default"), _signed(0), _signGrade(0), _execGrade(0) {
+AForm::AForm() : _name("Default"), _signed(0), _signGrade(0), _execGrade(0) {
    std::cout << "Default constructor called." << std::endl;
 }
 
-Form::Form(const std::string &name, int signGrade, int execGrade) : _name(name), _signed(0), _signGrade(signGrade), _execGrade(execGrade) {
+AForm::AForm(const std::string &name, int signGrade, int execGrade) : _name(name), _signed(0), _signGrade(signGrade), _execGrade(execGrade) {
    if (_signGrade > 150 || _execGrade > 150)
-      throw Form::GradeTooLowException();
+      throw AForm::GradeTooLowException();
    if (_signGrade < 1 || _execGrade < 1)
-      throw Form::GradeTooHighException();
+      throw AForm::GradeTooHighException();
    std::cout << "Parameterized constructor called." << std::endl;
 }
 
-Form::Form(const Form &src) : _name("Default"), _signed(0), _signGrade(0), _execGrade(0) {
+AForm::AForm(const AForm &src) : _name("Default"), _signed(0), _signGrade(0), _execGrade(0) {
    this->_signed = src._signed;
    std::cout << "Copy constructor called." << std::endl;
 }
 
-Form::~Form() {
+AForm::~AForm() {
    std::cout << "Destructor called." << std::endl;
 }
 
-Form & Form::operator=(const Form &rhs) {
+AForm & AForm::operator=(const AForm &rhs) {
    if (this != &rhs) {
       this->_signed = rhs._signed;
    }
    return *this;
 }
 
-int Form::getSignGrade() const {
+int AForm::getSignGrade() const {
 	return(_signGrade);
 }
 
-int Form::getExecGrade() const {
+int AForm::getExecGrade() const {
 	return(_execGrade);
 }
 
-std::string Form::getName() const {
+std::string AForm::getName() const {
 	return(_name);
 }
 
-bool Form::getSigned() const {
+bool AForm::getSigned() const {
 	return(_signed);
 }
 
-void Form::beSigned(const Bureaucrat &b) {
+void AForm::beSigned(const Bureaucrat &b) {
 	if (b.getGrade() <= _signGrade)
 		_signed = true;
 	else
 		throw GradeTooLowException();
 }
 
-std::ostream &operator<<(std::ostream &out, const Form &rhs) {
+std::ostream &operator<<(std::ostream &out, const AForm &rhs) {
 	out << "Form " << rhs.getName()
 	<< " requires " << rhs.getExecGrade() << " to execute it, "
 	<< rhs.getSignGrade() << " to sign it, ";
