@@ -49,7 +49,7 @@ echo "}" >> $NAME.cpp
 echo "" >> $NAME.cpp
 echo "$NAME & $NAME::operator=(const $NAME &rhs) {" >> $NAME.cpp
 echo "   if (this != &rhs) {}" >> $NAME.cpp
-echo "   return *this;" >> $NAME.cpp
+echo "   return (*this);" >> $NAME.cpp
 echo "}" >> $NAME.cpp
 
 cd ..

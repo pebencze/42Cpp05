@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include "AForm.hpp"
+# include <fstream>
 
 class ShrubberyCreationForm : public AForm {
     public:
@@ -12,6 +13,8 @@ class ShrubberyCreationForm : public AForm {
         ~ShrubberyCreationForm(); //destructor
 
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs); //operator overload
+
+        void writeTrees() const;
 
     private:
         std::string _target;

@@ -2,8 +2,9 @@
 # define PRESIDENTIALPARDONFORM_HPP
 
 # include <iostream>
+# include "AForm.hpp"
 
-class PresidentialPardonForm {
+class PresidentialPardonForm : public AForm {
     public:
         PresidentialPardonForm(); //default constructor
         PresidentialPardonForm(const std::string &target); //parameterized constructor

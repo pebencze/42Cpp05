@@ -23,3 +23,25 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
    }
    return (*this);
 }
+
+void ShrubberyCreationForm::writeTrees() const {
+   std::string filename;
+
+   filename = this->_target + "_shrubbery";
+   std::ofstream ofs(filename, std::ios::out);
+
+   if (!ofs.is_open()) {
+      std::cerr << "Failed to open file: " << filename << std::endl;
+      return;
+   }
+
+   ofs << "  (())          /\\\n";
+   ofs << " (())()         /\\\n";
+   ofs << "((()()))       /  \\\n";
+   ofs << "   ||          /  \\\n";
+   ofs << "   ||         /    \\\n";
+   ofs << "   ||           ||\n";
+   ofs << "---------------------------";
+
+   //ofs.close(); //not necessary, file closes automatically when out of scope
+}

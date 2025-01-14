@@ -2,8 +2,9 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
+# include "AForm.hpp"
 
-class RobotomyRequestForm {
+class RobotomyRequestForm : public AForm {
     public:
         RobotomyRequestForm(); //default constructor
         RobotomyRequestForm(const std::string &target); //parameterized constructor
