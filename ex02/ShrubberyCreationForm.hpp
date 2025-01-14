@@ -14,7 +14,7 @@ class ShrubberyCreationForm : public AForm {
 
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs); //operator overload
 
-        void writeTrees() const;
+        void performAction() const;
 
     private:
         std::string _target;

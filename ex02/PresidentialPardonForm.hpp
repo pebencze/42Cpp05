@@ -13,6 +13,8 @@ class PresidentialPardonForm : public AForm {
 
         PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs); //operator overload
 
+        void performAction() const;
+
     private:
         std::string _target;
 };

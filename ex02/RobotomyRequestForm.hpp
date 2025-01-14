@@ -13,6 +13,8 @@ class RobotomyRequestForm : public AForm {
 
         RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs); //operator overload
 
+        void performAction() const;
+
     private:
         std::string _target;
 };

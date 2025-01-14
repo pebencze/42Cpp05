@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:23:03 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/13 14:53:02 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/14 11:48:15 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 class AForm;
 
@@ -32,6 +32,7 @@ class Bureaucrat {
         void decrement(int amount);
         void increment(int amount);
 		void signForm(AForm &f) const;
+        void executeForm(AForm const & form);
 
         class GradeTooHighException : public std::exception { //custom exception, nested class
             public:

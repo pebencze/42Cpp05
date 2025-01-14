@@ -4,7 +4,12 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 
 OBJ_DIR = objs
 DEP_DIR = deps
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS = main.cpp \
+		Bureaucrat.cpp \
+		AForm.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS := $(addprefix $(DEP_DIR)/, $(SRCS:.cpp=.d))
 

@@ -6,14 +6,14 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:23:05 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/13 14:53:02 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/14 12:22:47 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default") {
-   std::cout << "Default constructor called." << std::endl;
+   std::cout << "Default bureaucrat constructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade) {
@@ -27,16 +27,16 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade
       std::cerr << "Error during construction. ";
       throw Bureaucrat::GradeTooLowException();
    }
-   std::cout << "Parameterized constructor called." << std::endl;
+   std::cout << "Parameterized bureaucrat constructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src) : _name("Default") {
    *this = src;
-   std::cout << "Copy constructor called." << std::endl;
+   std::cout << "Copy bureaucrat constructor called." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat() {
-   std::cout << "Destructor called." << std::endl;
+   std::cout << "Bureaucrat Destructor called." << std::endl;
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs) {
@@ -90,6 +90,17 @@ void Bureaucrat::signForm(AForm &f) const {
 		std::cout << _name << " couldn't sign " << f.getName() << " because " << e.what();
 	}
 	std::cout << std::endl;
+}
+
+void Bureaucrat::executeForm(AForm const &form) {
+   try {
+      form.execute(*this);
+      std::cout << this->_name << " executed " << form.getName() << std::endl;
+   }
+   catch (std::exception &e)
+   {
+      std::cerr << e.what() << std::endl;
+   }
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs) {

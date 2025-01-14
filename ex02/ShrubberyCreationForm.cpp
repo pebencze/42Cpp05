@@ -24,7 +24,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
    return (*this);
 }
 
-void ShrubberyCreationForm::writeTrees() const {
+void ShrubberyCreationForm::performAction() const {
    std::string filename;
 
    filename = this->_target + "_shrubbery";
@@ -43,5 +43,6 @@ void ShrubberyCreationForm::writeTrees() const {
    ofs << "   ||           ||\n";
    ofs << "---------------------------";
 
+   std::cout << "Created file " << filename << std::endl;
    //ofs.close(); //not necessary, file closes automatically when out of scope
 }

@@ -23,3 +23,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPar
    }
    return *this;
 }
+
+void PresidentialPardonForm::performAction() const {
+   std::cout << _target << " has been pardoned by Zaphod Beeblebrox.\n";
+}

@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:22:58 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/14 09:40:41 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/14 11:37:01 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ class AForm {
 		std::string getName() const;
 		bool getSigned() const;
 
-		virtual void beSigned(const Bureaucrat &b) = 0; //pure virtual function
+		virtual void performAction() const = 0; //pure virtual function
+		void execute(Bureaucrat const & executor) const;
+		void beSigned(const Bureaucrat &b);
 
 		class GradeTooHighException : public std::exception {
 			public:
