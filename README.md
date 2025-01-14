@@ -161,3 +161,9 @@ class Bureaucrat; //forward declaration
 
 class Form {...};
 ```
+
+3. Abstract Classes
+- "Class A is an abstract class. The compiler would not allow the function declarations A g() or void h(A), declaration of object a, nor the static cast of b to type A."
+- "Virtual member functions are inherited. A class **derived from an abstract base class will also be abstract unless you override each pure virtual function** in the derived class." (https://www.ibm.com/docs/en/zos/2.4.0?topic=only-abstract-classes-c, 14.1.25)
+
+

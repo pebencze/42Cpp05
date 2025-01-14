@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:22:58 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/13 15:54:43 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/14 09:40:41 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AForm {
 		std::string getName() const;
 		bool getSigned() const;
 
-		void beSigned(const Bureaucrat &b);
+		virtual void beSigned(const Bureaucrat &b) = 0; //pure virtual function
 
 		class GradeTooHighException : public std::exception {
 			public:
@@ -45,7 +45,7 @@ class AForm {
 				}
 		};
 
-    private:
+    protected:
         AForm(); //default constructor
         AForm(const AForm &src); //copy constructor
 

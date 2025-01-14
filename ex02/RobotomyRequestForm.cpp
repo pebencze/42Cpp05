@@ -4,7 +4,7 @@ RobotomyRequestForm::RobotomyRequestForm() {
    std::cout << "Default constructor called." << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &name) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) {
    std::cout << "Parameterized constructor called." << std::endl;
 }
 
