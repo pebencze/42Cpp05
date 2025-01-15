@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:22:55 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/13 14:44:10 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/15 13:12:21 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	std::cout << "--------------------------------------------------------\n";
 	std::cout << "\e[1;36mTESTING HIGH GRADE" << std::endl;
@@ -37,7 +37,7 @@ int	main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	std::cout << "--------------------------------------------------------\n";
 	std::cout << "\e[1;35mTESTING LOW GRADE" << std::endl;
@@ -49,24 +49,25 @@ int	main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	std::cout << "--------------------------------------------------------\n";
 	std::cout << "\e[1;34mTESTING SIGN FUNCTION" << std::endl;
 	try
 	{
 		Bureaucrat	John("John", 23);
+		Bureaucrat	Jane("Jane", 78);
 		Form		Contract("Contract", 23, 12);
 
 		std::cout << John;
 		std::cout << Contract;
 		John.signForm(Contract);
-		John.setGrade(78);
-		John.signForm(Contract);
+		std::cout << Contract;
+		Jane.signForm(Contract);
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	return (0);

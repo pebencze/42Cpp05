@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:16:45 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/10 17:51:55 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/15 13:00:24 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ int main()
     {
         Bureaucrat  Jim("Jim", 20);
         std::cout << Jim;
-        Jim.setGrade(1);
+		std::cout << "Setting grade...\n";
+        Jim.setGrade(8);
         std::cout << Jim;
         Jim.increment(10);
         std::cout << Jim;
+		Jim.increment(3);
+        std::cout << Jim;
+		std::cout << "Exiting try block.\n";
     }
     catch (std::exception &e)
     {
@@ -38,9 +42,11 @@ int main()
         std::cout << Alice;
         Alice.decrement(20);
         std::cout << Alice;
+		std::cout << "Exiting try block.\n";
     }
     catch(const std::exception& e)
     {
+		std::cout << "Entering catch block.\n";
         std::cerr << e.what() << '\n';
     }
     std::cout << "--------------------------------------------------------\n";
@@ -48,9 +54,11 @@ int main()
     {
         Bureaucrat  Sophie("Sophie", 0);
         std::cout << Sophie;
+		std::cout << "Exiting try block.\n";
     }
     catch(const std::exception& e)
     {
+		std::cout << "Entering catch block.\n";
         std::cerr << e.what() << '\n';
     }
     std::cout << "--------------------------------------------------------\n";

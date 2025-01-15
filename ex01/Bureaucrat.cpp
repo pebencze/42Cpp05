@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:23:05 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/13 14:34:27 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/15 13:01:44 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void Bureaucrat::setGrade(int newGrade) {
          _grade = newGrade;
    }
    catch (std::exception &e){
-      std::cout << e.what() << std::endl;
+      std::cerr << "Did not change grade: " << e.what() << std::endl;
       return ;
    }
 }
@@ -70,8 +70,8 @@ std::string Bureaucrat::getName() const {
 }
 
 void Bureaucrat::increment(int amount) {
-   setGrade(_grade - amount);
    std::cout << "Incrementing..." << std::endl;
+   setGrade(_grade - amount);
 }
 
 void Bureaucrat::decrement(int amount) {
@@ -87,7 +87,7 @@ void Bureaucrat::signForm(Form &f) const {
 	}
 	catch (std::exception &e)
 	{
-		std::cout << _name << " couldn't sign " << f.getName() << " because " << e.what();
+		std::cerr << _name << " couldn't sign " << f.getName() << " because " << e.what();
 	}
 	std::cout << std::endl;
 }

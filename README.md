@@ -1,10 +1,10 @@
 # 42Cpp05
 Repetition and exceptions.
 
-## Exceptions
+# Exceptions
 ~: a way of handling errors in C++. Related terms: try, catch, throw, if-else.
 
-### Why Exceptions? - Cons of Return Values.
+## Why Exceptions? - Cons of Return Values.
 - return codes do not work well with constructors
 - makes functions look long and messy
 - user has to deduce what the error code means
@@ -20,7 +20,7 @@ Repetition and exceptions.
 - use exceptions "exceptionally", because it is resource consuming (however, if no exception is thrown, the cost is minimal)
 
 
-## Guide
+## Guide to Exceptions
 - use exceptions if an error might occur e.g. arguments that user gives (external error); use assertions `assert` if something always has to be true or false (your programming error)
 - use error-codes in performance-critical loops
 - use execptions when there is many intervening function calls between error and handling
@@ -144,7 +144,7 @@ void test4()
 
 ## Random Things to Remember
 1. String reference has to be const in a parameterized constructor, to
-avoid the following error: "no known conversion from 'const char [9]' to 'std::string &' (aka 'basic_string<char> &'"
+avoid the following error: "no known conversion from 'const char [9]' to 'std::string &'"
 ```c++
 Form(const std::string &name, int signGrade, int execGrade);
 ```
