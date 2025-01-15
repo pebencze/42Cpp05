@@ -6,7 +6,7 @@
 /*   By: pbencze <pbencze@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:22:55 by pbencze           #+#    #+#             */
-/*   Updated: 2025/01/14 15:21:41 by pbencze          ###   ########.fr       */
+/*   Updated: 2025/01/15 13:04:18 by pbencze          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 		AForm *form2;
 		AForm *form3;
 		AForm *form4;
-		
+
 		std::cout << "\e[1;36m\nRobotomyRequestForm:\n";
 		form1 = randomIntern.makeForm("RobotomyRequestForm", "aliens");
 		std::cout << *form1;
@@ -44,11 +44,11 @@ int	main(void)
 		std::cout << "\e[1;33m\nNotExistingForm:\n";
 		form4 = randomIntern.makeForm("visa", "citizens");
 		std::cout << *form4;
-		delete form4;	
+		delete form4;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Exception occurred: "
+		std::cerr << "Exception occurred: "
 			<< e.what() << std::endl;
 	}
 	return (0);
