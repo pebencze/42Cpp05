@@ -13,11 +13,14 @@ enum e_form {
 class Intern {
     public:
         Intern(); //default constructor
-        //Intern(); //parameterized constructor
-        //Intern(const Intern &src); //copy constructor
         ~Intern(); //destructor
 
-        //Intern &operator=(const Intern &rhs); //operator overload
         AForm *makeForm(const std::string &name, const std::string &target);
+
+	private:
+        Intern(void *parameter); //parameterized constructor
+        Intern(const Intern &src); //copy constructor
+        Intern &operator=(const Intern &rhs); //operator overload
+
 };
 #endif

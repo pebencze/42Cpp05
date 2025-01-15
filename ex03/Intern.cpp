@@ -7,25 +7,27 @@ Intern::Intern() {
    std::cout << "Default intern constructor called." << std::endl;
 }
 
-// Intern::Intern(const std::string &name) {
-//    std::cout << "Parameterized constructor called." << std::endl;
-// }
+Intern::Intern(void *parameter) {
+	(void)(parameter);
+	std::cout << "Parameterized constructor called." << std::endl;
+}
 
-// Intern::Intern(const Intern &src) {
-//    std::cout << "Copy constructor called." << std::endl;
-// }
+Intern::Intern(const Intern &src) {
+	(const void)(src);
+	std::cout << "Copy constructor called." << std::endl;
+}
 
 Intern::~Intern() {
    std::cout << "Intern destructor called." << std::endl;
 }
 
-// Intern & Intern::operator=(const Intern &rhs) {
-//    if (this != &rhs) {}
-//    return (*this);
-// }
+Intern & Intern::operator=(const Intern &rhs) {
+	(const void)(rhs);
+	return (*this);
+}
 
 AForm *Intern::makeForm(const std::string &name, const std::string &target) {
-   
+
    AForm *Form = NULL;
    std::string errorMsg;
    std::string arr[3] = {"RobotomyRequestForm", "ShrubberyCreationForm", "PresidentialPardonForm"};
