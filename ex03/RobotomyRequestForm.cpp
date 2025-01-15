@@ -27,8 +27,8 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
 void RobotomyRequestForm::performAction() const {
    srand(static_cast<unsigned>(time(0)));
    std::cout << "DRRRRRRRRRRR...DRRRRRRR...DRRRR...\n";
-   if (rand() % 2) 
-      std::cout << _target << " has been robotomized successfully 50%% of the time.\n";
+   if (rand() % 2)
+      std::cout << _target << " has been robotomized successfully.\n";
    else
       std::cout << "Robotomy failed.\n";
 }
